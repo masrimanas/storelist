@@ -139,9 +139,7 @@ Widget _storeListTiles(
               const SizedBox(
                 width: 8,
               ),
-              const Icon(
-                Icons.maps_ugc_sharp,
-              ),
+              const Icon(Icons.pin_drop, color: Colors.green),
             ],
           ),
         ],

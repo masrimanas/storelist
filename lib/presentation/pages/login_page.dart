@@ -28,6 +28,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext contexts) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: BlocBuilder<AuthBloc, AuthState>(
           builder: (context, state) {
@@ -46,7 +47,10 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                         TextInputForm(
                             inputController: userInputController,
-                            icon: const Icon(Icons.account_circle),
+                            icon: const Icon(
+                              Icons.account_circle,
+                              color: Colors.blue,
+                            ),
                             text: 'Username',
                             type: TextInputType.name,
                             isHidden: false),
@@ -55,7 +59,10 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                         TextInputForm(
                             inputController: passwordInputController,
-                            icon: const Icon(Icons.lock),
+                            icon: const Icon(
+                              Icons.lock,
+                              color: Colors.blue,
+                            ),
                             text: 'Password',
                             type: TextInputType.visiblePassword,
                             isHidden: true),
@@ -130,20 +137,6 @@ class _LoginPageState extends State<LoginPage> {
                       textAlign: TextAlign.center,
                     ),
                   )),
-                  ElevatedButton(
-                    style: ButtonStyle(
-                        elevation: MaterialStateProperty.all(2),
-                        alignment: Alignment.center,
-                        padding:
-                            MaterialStateProperty.all(const EdgeInsets.all(2)),
-                        backgroundColor: MaterialStateProperty.all(Colors.blue),
-                        shape: MaterialStateProperty.all(
-                          RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10)),
-                        )),
-                    onPressed: () {},
-                    child: const Text('Reset'),
-                  ),
                   ElevatedButton(
                       onPressed: () {
                         context.read<AuthBloc>().add(const AuthLogOutPressed());
